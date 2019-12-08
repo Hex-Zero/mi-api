@@ -28,19 +28,6 @@ export default class EditProduct extends Component {
       .catch(function(error) {
         console.log(error);
       });
-
-    // axios
-    //   .get("http://localhost:5000/users/")
-    //   .then(response => {
-    //     if (response.data.length > 0) {
-    //       this.setState({
-    //         users: response.data.map(user => user.local)
-    //       });
-    //     }
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   });
   }
 
   onChangeLocal(e) {

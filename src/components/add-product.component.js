@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Ingredients from "./ingredients";
 
 export default class AddProduct extends Component {
   constructor(props) {
@@ -199,16 +200,10 @@ export default class AddProduct extends Component {
               onChange={this.onChangeDescription}
             />
           </div>
-          <div className="form-group">
-            <label>Ingredients: </label>
-            <input
-              type="text"
-              required
-              className="form-control"
-              value={this.state.ingredients}
-              onChange={this.onChangeIngredients}
-            />
-          </div>
+          <Ingredients
+            onChangeIngredients={this.onChangeIngredients}
+            value={this.state.ingredients}
+          />
           <div className="form-group">
             <label>Isnew: </label>
             <input
