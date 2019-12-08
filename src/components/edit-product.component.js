@@ -91,6 +91,16 @@ export default class EditProduct extends Component {
             />
           </div>
           <div className="form-group">
+            <label>Sku: </label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              value={this.state.sku}
+              onChange={this.onChangeSku}
+            />
+          </div>
+          <div className="form-group">
             <label>Description: </label>
             <input
               type="text"
@@ -100,7 +110,6 @@ export default class EditProduct extends Component {
               onChange={this.onChangeDescription}
             />
           </div>
-
           <div className="form-group">
             <input
               type="submit"
