@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "react-datepicker/dist/react-datepicker.css";
 
 export default class EditProduct extends Component {
   constructor(props) {

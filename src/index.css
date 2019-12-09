@@ -1,5 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  display: -ms-grid;
+  display: grid;
 }
 /*# sourceMappingURL=index.css.map */
