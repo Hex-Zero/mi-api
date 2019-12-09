@@ -5,7 +5,7 @@ import axios from "axios";
 const Product = props => (
   <tr>
     <td>{props.product.local}</td>
-    <td>{props.product.description}</td>
+    <td>{props.product.sku}</td>
     <td>
       <Link to={"/edit/" + props.product._id}>edit</Link> |{" "}
       <button
@@ -69,7 +69,7 @@ export default class ProductsList extends Component {
           <thead className="thead-light">
             <tr>
               <th>Local</th>
-              <th>Description</th>
+              <th>Sku</th>
             </tr>
           </thead>
           <tbody>{this.productList()}</tbody>
