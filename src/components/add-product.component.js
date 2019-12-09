@@ -162,11 +162,11 @@ export default class AddProduct extends Component {
   render() {
     return (
       <div>
-        <h3>Add Product</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Local: </label>
+            <label for="local">Local: </label>
             <input
+              id="local"
               type="text"
               required
               className="form-control"
@@ -175,8 +175,9 @@ export default class AddProduct extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Sku: </label>
+            <label for="sku">Sku: </label>
             <input
+              id="sku"
               type="text"
               required
               className="form-control"
@@ -185,8 +186,9 @@ export default class AddProduct extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Title: </label>
+            <label for="title">Title: </label>
             <input
+              id="title"
               type="text"
               required
               className="form-control"
@@ -195,8 +197,9 @@ export default class AddProduct extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Brand: </label>
+            <label for="brand">Brand: </label>
             <input
+              id="brand"
               type="text"
               required
               className="form-control"
@@ -205,8 +208,9 @@ export default class AddProduct extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Size: </label>
+            <label for="size">Size: </label>
             <input
+              id="size"
               type="text"
               required
               className="form-control"
@@ -215,8 +219,9 @@ export default class AddProduct extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Description: </label>
+            <label for="description">Description: </label>
             <input
+              id="description"
               type="text"
               required
               className="form-control"
@@ -245,8 +250,9 @@ export default class AddProduct extends Component {
             })}
           </div>
           <div className="form-group">
-            <label>Isnew: </label>
+            <label for="isnew">Isnew: </label>
             <input
+              id="isnew"
               type="checkbox"
               className="form-control"
               checked={this.state.isnew}
@@ -254,8 +260,9 @@ export default class AddProduct extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Sale: </label>
+            <label for="sale">Sale: </label>
             <input
+              id="sale"
               type="checkbox"
               className="form-control"
               checked={this.state.sale}
@@ -263,8 +270,9 @@ export default class AddProduct extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Inventory: </label>
+            <label for="inventory">Inventory: </label>
             <input
+              id="inventory"
               type="number"
               required
               className="form-control"
@@ -273,8 +281,9 @@ export default class AddProduct extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Category: </label>
+            <label for="category">Category: </label>
             <input
+              id="category"
               type="text"
               required
               className="form-control"
