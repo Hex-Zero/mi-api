@@ -3,6 +3,14 @@
   padding: 0;
 }
 
+html {
+  background: linear-gradient(16deg, rgba(116, 116, 116, 0.02) 0%, rgba(116, 116, 116, 0.02) 25%, transparent 25%, transparent 96%, rgba(177, 177, 177, 0.02) 96%, rgba(177, 177, 177, 0.02) 100%), linear-gradient(236deg, rgba(148, 148, 148, 0.02) 0%, rgba(148, 148, 148, 0.02) 53%, transparent 53%, transparent 59%, rgba(56, 56, 56, 0.02) 59%, rgba(56, 56, 56, 0.02) 100%), linear-gradient(284deg, rgba(16, 16, 16, 0.02) 0%, rgba(16, 16, 16, 0.02) 46%, transparent 46%, transparent 71%, rgba(181, 181, 181, 0.02) 71%, rgba(181, 181, 181, 0.02) 100%), linear-gradient(316deg, rgba(197, 197, 197, 0.02) 0%, rgba(197, 197, 197, 0.02) 26%, transparent 26%, transparent 49%, rgba(58, 58, 58, 0.02) 49%, rgba(58, 58, 58, 0.02) 100%), linear-gradient(90deg, white, white);
+}
+
+html body {
+  min-height: 100vh;
+}
+
 .container nav {
   display: -ms-grid;
   display: grid;
@@ -56,20 +64,22 @@ form .form-group {
 
 form .form-group textarea {
   padding: 0.4vw;
-  background: #ffe1bc;
+  background: rgba(255, 225, 188, 0.767);
   border: none;
 }
 
 form .form-group input {
   width: 15vw;
   padding: 0.4vw;
-  background: #fcd19c;
+  background: rgba(252, 209, 156, 0.788);
   border: none;
 }
 
 form .form-group .checkbox {
   -webkit-transform: scale(2.5);
           transform: scale(2.5);
+  width: 1vw;
+  margin: 1vw;
 }
 
 form .form-group .add-remove {
@@ -80,13 +90,20 @@ form .form-group .add-remove {
   justify-items: center;
 }
 
+form .form-group .add-remove .add {
+  background: #ddff9e;
+}
+
+form .form-group .add-remove .remove {
+  background: #ffad9e;
+}
+
 form .form-group .add-remove .buttons {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   font-weight: 800;
   padding: 0.6vw 1vw;
-  background: #fcd19c;
   border-radius: 5px;
   margin-bottom: 10px;
 }

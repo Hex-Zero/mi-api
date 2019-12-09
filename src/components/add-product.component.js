@@ -26,7 +26,7 @@ export default class AddProduct extends Component {
       title: "",
       brand: "",
       description: "",
-      ingredients: ["first"],
+      ingredients: [""],
       size: "",
       isnew: true,
       sale: true,
@@ -106,7 +106,7 @@ export default class AddProduct extends Component {
   }
   handleAddIngredients() {
     this.setState({
-      ingredients: [...this.state.ingredients, "add"]
+      ingredients: [...this.state.ingredients, ""]
     });
   }
 
@@ -150,7 +150,7 @@ export default class AddProduct extends Component {
       title: "",
       brand: "",
       description: "",
-      ingredients: [" "],
+      ingredients: [""],
       size: "",
       isnew: true,
       sale: true,
@@ -165,7 +165,7 @@ export default class AddProduct extends Component {
         <form onSubmit={this.onSubmit}>
           <div className="frist-group">
             <div className="form-group">
-              <label for="local">Local: </label>
+              <label htmlFor="local">Local: </label>
               <input
                 id="local"
                 type="text"
@@ -175,7 +175,7 @@ export default class AddProduct extends Component {
               />
             </div>
             <div className="form-group">
-              <label for="sku">Sku: </label>
+              <label htmlFor="sku">Sku: </label>
               <input
                 id="sku"
                 type="text"
@@ -185,7 +185,7 @@ export default class AddProduct extends Component {
               />
             </div>
             <div className="form-group">
-              <label for="title">Title: </label>
+              <label htmlFor="title">Title: </label>
               <input
                 id="title"
                 type="text"
@@ -195,7 +195,7 @@ export default class AddProduct extends Component {
               />
             </div>
             <div className="form-group">
-              <label for="brand">Brand: </label>
+              <label htmlFor="brand">Brand: </label>
               <input
                 id="brand"
                 type="text"
@@ -205,7 +205,7 @@ export default class AddProduct extends Component {
               />
             </div>
             <div className="form-group">
-              <label for="size">Size: </label>
+              <label htmlFor="size">Size: </label>
               <input
                 id="size"
                 type="text"
@@ -215,7 +215,7 @@ export default class AddProduct extends Component {
               />
             </div>
             <div className="form-group">
-              <label for="category">Category: </label>
+              <label htmlFor="category">Category: </label>
               <input
                 id="category"
                 type="text"
@@ -226,23 +226,26 @@ export default class AddProduct extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label for="description">Description: </label>
+            <label htmlFor="description">Description: </label>
             <textarea
               id="description"
               type="text"
               required
               value={this.state.description}
               onChange={this.onChangeDescription}
-              rows="9"
+              rows="18"
               cols="60"
             />
           </div>
           <div className="form-group">
             <div className="add-remove">
-              <div className="buttons" onClick={this.handleAddIngredients}>
+              <div className="buttons add" onClick={this.handleAddIngredients}>
                 +
               </div>
-              <div className="buttons" onClick={this.handleRemoveIngredients}>
+              <div
+                className="buttons remove"
+                onClick={this.handleRemoveIngredients}
+              >
                 -
               </div>
             </div>
@@ -253,7 +256,7 @@ export default class AddProduct extends Component {
                   <label>Ingredient {index + 1}: </label>
                   <textarea
                     rows="4"
-                    cols="50"
+                    cols="130"
                     type="text"
                     required
                     value={this.state.ingredients[index]}
@@ -264,27 +267,31 @@ export default class AddProduct extends Component {
             })}
           </div>
           <div className="form-group">
-            <label for="isnew">Isnew: </label>
-            <input
-              id="isnew"
-              type="checkbox"
-              className="checkbox"
-              checked={this.state.isnew}
-              onChange={this.onChangeIsnew}
-            />
+            <div>
+              <label htmlFor="isnew">Isnew: </label>
+              <input
+                id="isnew"
+                type="checkbox"
+                className="checkbox"
+                checked={this.state.isnew}
+                onChange={this.onChangeIsnew}
+              />
+            </div>
           </div>
           <div className="form-group">
-            <label for="sale">Sale: </label>
-            <input
-              id="sale"
-              type="checkbox"
-              className="checkbox"
-              checked={this.state.sale}
-              onChange={this.onChangeSale}
-            />
+            <div>
+              <label htmlFor="sale">Sale: </label>
+              <input
+                id="sale"
+                type="checkbox"
+                className="checkbox"
+                checked={this.state.sale}
+                onChange={this.onChangeSale}
+              />
+            </div>
           </div>
           <div className="form-group">
-            <label for="inventory">Inventory: </label>
+            <label htmlFor="inventory">Inventory: </label>
             <input
               id="inventory"
               type="number"
