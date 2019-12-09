@@ -163,85 +163,99 @@ export default class AddProduct extends Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group">
-            <label for="local">Local: </label>
-            <input
-              id="local"
-              type="text"
-              required
-              className="form-control"
-              value={this.state.local}
-              onChange={this.onChangeLocal}
-            />
-          </div>
-          <div className="form-group">
-            <label for="sku">Sku: </label>
-            <input
-              id="sku"
-              type="text"
-              required
-              className="form-control"
-              value={this.state.sku}
-              onChange={this.onChangeSku}
-            />
-          </div>
-          <div className="form-group">
-            <label for="title">Title: </label>
-            <input
-              id="title"
-              type="text"
-              required
-              className="form-control"
-              value={this.state.title}
-              onChange={this.onChangeTitle}
-            />
-          </div>
-          <div className="form-group">
-            <label for="brand">Brand: </label>
-            <input
-              id="brand"
-              type="text"
-              required
-              className="form-control"
-              value={this.state.brand}
-              onChange={this.onChangeBrand}
-            />
-          </div>
-          <div className="form-group">
-            <label for="size">Size: </label>
-            <input
-              id="size"
-              type="text"
-              required
-              className="form-control"
-              value={this.state.size}
-              onChange={this.onChangeSize}
-            />
+          <div className="frist-group">
+            <div className="form-group">
+              <label for="local">Local: </label>
+              <input
+                id="local"
+                type="text"
+                required
+                value={this.state.local}
+                onChange={this.onChangeLocal}
+              />
+            </div>
+            <div className="form-group">
+              <label for="sku">Sku: </label>
+              <input
+                id="sku"
+                type="text"
+                required
+                value={this.state.sku}
+                onChange={this.onChangeSku}
+              />
+            </div>
+            <div className="form-group">
+              <label for="title">Title: </label>
+              <input
+                id="title"
+                type="text"
+                required
+                value={this.state.title}
+                onChange={this.onChangeTitle}
+              />
+            </div>
+            <div className="form-group">
+              <label for="brand">Brand: </label>
+              <input
+                id="brand"
+                type="text"
+                required
+                value={this.state.brand}
+                onChange={this.onChangeBrand}
+              />
+            </div>
+            <div className="form-group">
+              <label for="size">Size: </label>
+              <input
+                id="size"
+                type="text"
+                required
+                value={this.state.size}
+                onChange={this.onChangeSize}
+              />
+            </div>
+            <div className="form-group">
+              <label for="category">Category: </label>
+              <input
+                id="category"
+                type="text"
+                required
+                value={this.state.category}
+                onChange={this.onChangeCategory}
+              />
+            </div>
           </div>
           <div className="form-group">
             <label for="description">Description: </label>
-            <input
+            <textarea
               id="description"
               type="text"
               required
-              className="form-control"
               value={this.state.description}
               onChange={this.onChangeDescription}
+              rows="9"
+              cols="60"
             />
           </div>
           <div className="form-group">
-            <label>Ingredients amout: </label>
-            <div onClick={this.handleAddIngredients}>ADD </div>
-            <div onClick={this.handleRemoveIngredients}>REMOVE</div>
+            <div className="add-remove">
+              <div className="buttons" onClick={this.handleAddIngredients}>
+                +
+              </div>
+              <div className="buttons" onClick={this.handleRemoveIngredients}>
+                -
+              </div>
+            </div>
             {this.state.ingredients.map((item, index) => {
               console.log(item);
               return (
-                <div key={uuidv1()}>
+                <div className="form-group" key={uuidv1()}>
                   <label>Ingredient {index + 1}: </label>
-                  <input
+                  <textarea
+                    rows="4"
+                    cols="50"
                     type="text"
                     required
-                    className="form-control"
                     value={this.state.ingredients[index]}
                     onChange={e => this.onChangeIngredients(e, index)}
                   />
@@ -254,7 +268,7 @@ export default class AddProduct extends Component {
             <input
               id="isnew"
               type="checkbox"
-              className="form-control"
+              className="checkbox"
               checked={this.state.isnew}
               onChange={this.onChangeIsnew}
             />
@@ -264,7 +278,7 @@ export default class AddProduct extends Component {
             <input
               id="sale"
               type="checkbox"
-              className="form-control"
+              className="checkbox"
               checked={this.state.sale}
               onChange={this.onChangeSale}
             />
@@ -275,24 +289,12 @@ export default class AddProduct extends Component {
               id="inventory"
               type="number"
               required
-              className="form-control"
               value={this.state.inventory}
               onChange={this.onChangeInventory}
             />
           </div>
           <div className="form-group">
-            <label for="category">Category: </label>
-            <input
-              id="category"
-              type="text"
-              required
-              className="form-control"
-              value={this.state.category}
-              onChange={this.onChangeCategory}
-            />
-          </div>
-          <div className="form-group">
-            <input type="submit" value="ADD" className="btn btn-primary" />
+            <input type="submit" value="DONE" className="btn btn-primary" />
           </div>
         </form>
       </div>

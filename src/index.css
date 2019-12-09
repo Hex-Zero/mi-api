@@ -30,10 +30,74 @@
   text-decoration: none;
   font-weight: 800;
   color: black;
-  padding: 20px;
+  padding: 15px;
 }
 
 .container nav ul li a:hover {
   background: #fcd19c;
+}
+
+form {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  -webkit-column-gap: 3vw;
+          column-gap: 3vw;
+}
+
+form .form-group {
+  display: -ms-grid;
+  display: grid;
+}
+
+form .form-group textarea {
+  padding: 0.4vw;
+  background: #ffe1bc;
+  border: none;
+}
+
+form .form-group input {
+  width: 15vw;
+  padding: 0.4vw;
+  background: #fcd19c;
+  border: none;
+}
+
+form .form-group .checkbox {
+  -webkit-transform: scale(2.5);
+          transform: scale(2.5);
+}
+
+form .form-group .add-remove {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  justify-items: center;
+}
+
+form .form-group .add-remove .buttons {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-weight: 800;
+  padding: 0.6vw 1vw;
+  background: #fcd19c;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+form .form-group label {
+  font-weight: 700;
+  font-size: 1vw;
+  padding: 0.2vw;
+}
+
+#inventory {
+  width: 2vw;
 }
 /*# sourceMappingURL=index.css.map */

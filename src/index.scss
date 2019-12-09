@@ -18,7 +18,7 @@
           text-decoration: none;
           font-weight: 800;
           color: black;
-          padding: 20px;
+          padding: 15px;
           &:hover {
             background: rgb(252, 209, 156);
           }
@@ -26,4 +26,49 @@
       }
     }
   }
+}
+
+form {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto auto;
+  column-gap: 3vw;
+  .form-group {
+    display: grid;
+    textarea {
+      padding: 0.4vw;
+      background: rgb(255, 225, 188);
+      border: none;
+    }
+    input {
+      width: 15vw;
+      padding: 0.4vw;
+      background: rgb(252, 209, 156);
+      border: none;
+    }
+    .checkbox {
+      transform: scale(2.5);
+    }
+    .add-remove {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-items: center;
+      .buttons {
+        align-self: center;
+        font-weight: 800;
+        padding: 0.6vw 1vw;
+        background: rgb(252, 209, 156);
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+    }
+    label {
+      font-weight: 700;
+      font-size: 1vw;
+      padding: 0.2vw;
+    }
+  }
+}
+#inventory {
+  width: 2vw;
 }
