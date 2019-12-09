@@ -121,3 +121,61 @@ form {
 #inventory {
   width: 2vw;
 }
+
+.list-table {
+  display: grid;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1vw;
+  thead {
+    background: coral;
+  }
+  th {
+    padding: 1vw 6vw;
+  }
+  .action {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 1vw;
+  }
+  td {
+    background: rgba(255, 127, 80, 0.486);
+    padding: 1vw 6vw;
+
+    .edit {
+      text-decoration: none;
+      color: black;
+      background: rgba(9, 247, 255, 0.74);
+      border-radius: 5px;
+      padding: 0.4vw 1vw;
+      &:hover {
+        background: rgb(9, 247, 255);
+      }
+    }
+    .delete {
+      padding: 0.4vw 1vw;
+      background: rgba(255, 0, 0, 0.651);
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover {
+        background: rgb(255, 0, 0);
+      }
+    }
+  }
+}
+.container {
+  display: grid;
+
+  #add-button-list {
+    text-decoration: none;
+    color: black;
+    background: rgba(9, 255, 70, 0.74);
+    border-radius: 5px;
+    padding: 0.4vw 1vw;
+    justify-self: center;
+    margin-top: 2vh;
+    &:hover {
+      background: rgb(9, 255, 70);
+    }
+  }
+}

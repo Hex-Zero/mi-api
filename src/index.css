@@ -117,4 +117,79 @@ form .form-group label {
 #inventory {
   width: 2vw;
 }
+
+.list-table {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 800;
+  font-size: 1vw;
+}
+
+.list-table thead {
+  background: coral;
+}
+
+.list-table th {
+  padding: 1vw 6vw;
+}
+
+.list-table .action {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  -webkit-column-gap: 1vw;
+          column-gap: 1vw;
+}
+
+.list-table td {
+  background: rgba(255, 127, 80, 0.486);
+  padding: 1vw 6vw;
+}
+
+.list-table td .edit {
+  text-decoration: none;
+  color: black;
+  background: rgba(9, 247, 255, 0.74);
+  border-radius: 5px;
+  padding: 0.4vw 1vw;
+}
+
+.list-table td .edit:hover {
+  background: #09f7ff;
+}
+
+.list-table td .delete {
+  padding: 0.4vw 1vw;
+  background: rgba(255, 0, 0, 0.651);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.list-table td .delete:hover {
+  background: red;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+}
+
+.container #add-button-list {
+  text-decoration: none;
+  color: black;
+  background: rgba(9, 255, 70, 0.74);
+  border-radius: 5px;
+  padding: 0.4vw 1vw;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  margin-top: 2vh;
+}
+
+.container #add-button-list:hover {
+  background: #09ff46;
+}
 /*# sourceMappingURL=index.css.map */

@@ -4,17 +4,21 @@ import axios from "axios";
 
 const Product = props => (
   <tr>
-    <td>{props.product.local}</td>
+    <td>{props.product.title}</td>
     <td>{props.product.sku}</td>
-    <td>
-      <Link to={"/edit/" + props.product._id}>edit</Link> |{" "}
-      <button
+    <td className="action">
+      <Link className="edit" to={"/edit/" + props.product._id}>
+        Edit
+      </Link>
+
+      <div
+        className="delete"
         onClick={() => {
           props.deleteProduct(props.product._id);
         }}
       >
-        delete
-      </button>
+        Delete
+      </div>
     </td>
   </tr>
 );
@@ -63,18 +67,22 @@ export default class ProductsList extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Logged Products</h3>
-        <table className="table">
-          <thead className="thead-light">
-            <tr>
-              <th>Local</th>
-              <th>Sku</th>
-            </tr>
-          </thead>
-          <tbody>{this.productList()}</tbody>
-        </table>
-      </div>
+      <>
+        <div className="list-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Sku</th> <th></th>
+              </tr>
+            </thead>
+            <tbody>{this.productList()}</tbody>
+          </table>
+        </div>
+        <Link to="/product" id="add-button-list">
+          Add
+        </Link>
+      </>
     );
   }
 }
