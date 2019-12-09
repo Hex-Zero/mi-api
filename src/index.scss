@@ -1,8 +1,29 @@
 * {
   margin: 0;
   padding: 0;
-  display: grid;
 }
-
-nav {
+.container {
+  nav {
+    display: grid;
+    justify-content: center;
+    ul {
+      background: bisque;
+      display: grid;
+      justify-items: center;
+      grid-template-columns: auto auto;
+      list-style: none;
+      li {
+        display: grid;
+        a {
+          text-decoration: none;
+          font-weight: 800;
+          color: black;
+          padding: 20px;
+          &:hover {
+            background: rgb(252, 209, 156);
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,7 +1,39 @@
 * {
   margin: 0;
   padding: 0;
+}
+
+.container nav {
   display: -ms-grid;
   display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container nav ul {
+  background: bisque;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  list-style: none;
+}
+
+.container nav ul li {
+  display: -ms-grid;
+  display: grid;
+}
+
+.container nav ul li a {
+  text-decoration: none;
+  font-weight: 800;
+  color: black;
+  padding: 20px;
+}
+
+.container nav ul li a:hover {
+  background: #fcd19c;
 }
 /*# sourceMappingURL=index.css.map */
