@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Ingredients from "./ingredients";
 import uuidv1 from "uuid/v1";
 export default class AddProduct extends Component {
   constructor(props) {
@@ -65,9 +64,14 @@ export default class AddProduct extends Component {
       description: e.target.value
     });
   }
-  onChangeIngredients(e) {
+  onChangeIngredients(e, index) {
     this.setState({
-      ingredients: e.target.value
+      ingredients: this.state.ingredients.map((ing, i) => {
+        if (i === index) {
+          return e.target.value;
+        }
+        return ing;
+      })
     });
   }
 
@@ -104,7 +108,6 @@ export default class AddProduct extends Component {
     this.setState({
       ingredients: [...this.state.ingredients, "add"]
     });
-    // setAmount([...amount, amount[amount.length - 1] + 1]);
   }
 
   handleRemoveIngredients() {
@@ -118,16 +121,6 @@ export default class AddProduct extends Component {
         }
       })
     });
-    // this.setState(
-    //   this.state.ingredients.filter(item => {
-    //     if (item == 1) {
-    //       return 1;
-    //     }
-    //     if (item != [this.state.ingredients.length]) {
-    //       return item;
-    //     }
-    //   })
-    // );
   }
 
   onSubmit(e) {
@@ -237,7 +230,6 @@ export default class AddProduct extends Component {
             <div onClick={this.handleRemoveIngredients}>REMOVE</div>
             {this.state.ingredients.map((item, index) => {
               console.log(item);
-
               return (
                 <div key={uuidv1()}>
                   <label>Ingredient {index + 1}: </label>
@@ -246,23 +238,7 @@ export default class AddProduct extends Component {
                     required
                     className="form-control"
                     value={this.state.ingredients[index]}
-                    onChange={e => {}}
-
-                    // onChange={e => {
-                    //   let change = e.target.value;
-                    //   this.setState({
-                    //     iningredients: this.state.ingredients.map(
-                    //       (ingredient, i) => {
-                    //         if (i === index) {
-                    //           console.log(change);
-                    //           return change;
-                    //         } else {
-                    //           return ingredient;
-                    //         }
-                    //       }
-                    //     )
-                    //   });
-                    // }}
+                    onChange={e => this.onChangeIngredients(e, index)}
                   />
                 </div>
               );
