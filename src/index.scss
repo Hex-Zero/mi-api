@@ -74,13 +74,15 @@ form {
   display: grid;
   justify-content: center;
   grid-template-columns: auto auto auto;
-  column-gap: 3vw;
+  column-gap: 1vw;
   .form-group {
     display: grid;
     textarea {
+      font-size: 0.6vw;
       padding: 0.4vw;
       background: rgba(255, 225, 188, 0.767);
       border: none;
+      margin-bottom: 1vh;
     }
     input {
       width: 15vw;

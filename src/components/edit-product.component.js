@@ -267,14 +267,14 @@ export default class EditProduct extends Component {
               console.log(item);
               return (
                 <div className="form-group" key={uuidv1()}>
-                  <label>Ingredient {index + 1}: </label>
                   <textarea
                     rows="4"
-                    cols="130"
+                    cols="140"
                     type="text"
                     required
                     value={this.state.ingredients[index]}
                     onChange={e => this.onChangeIngredients(e, index)}
+                    placeholder={`Ingredient ${index + 1}:`}
                   />
                 </div>
               );

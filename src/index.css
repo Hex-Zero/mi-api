@@ -53,8 +53,8 @@ form {
           justify-content: center;
   -ms-grid-columns: auto auto auto;
       grid-template-columns: auto auto auto;
-  -webkit-column-gap: 3vw;
-          column-gap: 3vw;
+  -webkit-column-gap: 1vw;
+          column-gap: 1vw;
 }
 
 form .form-group {
@@ -63,9 +63,11 @@ form .form-group {
 }
 
 form .form-group textarea {
+  font-size: 0.6vw;
   padding: 0.4vw;
   background: rgba(255, 225, 188, 0.767);
   border: none;
+  margin-bottom: 1vh;
 }
 
 form .form-group input {
