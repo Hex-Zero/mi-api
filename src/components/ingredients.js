@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-const Ingredients = ({ onChangeIngredients, value }) => {
-  const [amount, setAmount] = useState([1]);
-  console.log(amount);
+const Ingredients = ({ setState, value }) => {
+  const [amount, setAmount] = useState([1, 2]);
+
   const handleAddIngredients = () => {
     setAmount([...amount, amount[amount.length - 1] + 1]);
   };
@@ -18,21 +18,21 @@ const Ingredients = ({ onChangeIngredients, value }) => {
       })
     );
   };
+
   return (
     <div className="form-group">
       <label>Ingredients amout: </label>
-      <div onClick={handleAddIngredients}>ADD {amount[amount.length - 1]}</div>
-      <div onClick={handleRemoveIngredients}>remove</div>
+      <div onClick={handleAddIngredients}>ADD </div>
+      <div onClick={handleRemoveIngredients}>REMOVE</div>
       {amount.map(item => {
         return (
           <>
-            <label>Ingredients: </label>
+            <label>Ingredient {item}: </label>
             <input
               type="text"
               required
               className="form-control"
-              value={value}
-              onChange={onChangeIngredients}
+              value={value[0]}
             />
           </>
         );

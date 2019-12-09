@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Ingredients from "./ingredients";
-
+import uuidv1 from "uuid/v1";
 export default class AddProduct extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +17,8 @@ export default class AddProduct extends Component {
     this.onChangeSale = this.onChangeSale.bind(this);
     this.onChangeInventory = this.onChangeInventory.bind(this);
     this.onChangeCategory = this.onChangeCategory.bind(this);
+    this.handleAddIngredients = this.handleAddIngredients.bind(this);
+    this.handleRemoveIngredients = this.handleRemoveIngredients.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
@@ -25,7 +27,7 @@ export default class AddProduct extends Component {
       title: "",
       brand: "",
       description: "",
-      ingredients: [],
+      ingredients: ["first"],
       size: "",
       isnew: true,
       sale: true,
@@ -98,6 +100,35 @@ export default class AddProduct extends Component {
       category: e.target.value
     });
   }
+  handleAddIngredients() {
+    this.setState({
+      ingredients: [...this.state.ingredients, "add"]
+    });
+    // setAmount([...amount, amount[amount.length - 1] + 1]);
+  }
+
+  handleRemoveIngredients() {
+    this.setState({
+      ingredients: this.state.ingredients.filter((item, index) => {
+        if (this.state.ingredients.length === 1) {
+          return item || "";
+        }
+        if (index + 1 !== this.state.ingredients.length) {
+          return item || "";
+        }
+      })
+    });
+    // this.setState(
+    //   this.state.ingredients.filter(item => {
+    //     if (item == 1) {
+    //       return 1;
+    //     }
+    //     if (item != [this.state.ingredients.length]) {
+    //       return item;
+    //     }
+    //   })
+    // );
+  }
 
   onSubmit(e) {
     e.preventDefault();
@@ -126,7 +157,7 @@ export default class AddProduct extends Component {
       title: "",
       brand: "",
       description: "",
-      ingredients: "",
+      ingredients: [" "],
       size: "",
       isnew: true,
       sale: true,
@@ -200,10 +231,43 @@ export default class AddProduct extends Component {
               onChange={this.onChangeDescription}
             />
           </div>
-          <Ingredients
-            onChangeIngredients={this.onChangeIngredients}
-            value={this.state.ingredients}
-          />
+          <div className="form-group">
+            <label>Ingredients amout: </label>
+            <div onClick={this.handleAddIngredients}>ADD </div>
+            <div onClick={this.handleRemoveIngredients}>REMOVE</div>
+            {this.state.ingredients.map((item, index) => {
+              console.log(item);
+
+              return (
+                <div key={uuidv1()}>
+                  <label>Ingredient {index + 1}: </label>
+                  <input
+                    type="text"
+                    required
+                    className="form-control"
+                    value={this.state.ingredients[index]}
+                    onChange={e => {}}
+
+                    // onChange={e => {
+                    //   let change = e.target.value;
+                    //   this.setState({
+                    //     iningredients: this.state.ingredients.map(
+                    //       (ingredient, i) => {
+                    //         if (i === index) {
+                    //           console.log(change);
+                    //           return change;
+                    //         } else {
+                    //           return ingredient;
+                    //         }
+                    //       }
+                    //     )
+                    //   });
+                    // }}
+                  />
+                </div>
+              );
+            })}
+          </div>
           <div className="form-group">
             <label>Isnew: </label>
             <input
