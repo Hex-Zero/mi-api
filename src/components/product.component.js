@@ -72,8 +72,19 @@ export default class AddProduct extends Component {
   }
 
   onChangeTitle(e) {
+    console.log(
+      this.state.title
+        .replace(/-/g, "")
+        .replace(/\s/g, "-")
+        .toLowerCase()
+    );
+
     this.setState({
-      title: e.target.value
+      title: e.target.value,
+      local: e.target.value
+        .replace(/-/g, "")
+        .replace(/\s/g, "-")
+        .toLowerCase()
     });
   }
 
@@ -125,7 +136,7 @@ export default class AddProduct extends Component {
 
   onChangeCategory(e) {
     this.setState({
-      category: e.target.value
+      category: e.target.value.replace(/\s/g, "-").toLowerCase()
     });
   }
   handleAddIngredients() {
@@ -200,27 +211,7 @@ export default class AddProduct extends Component {
         <form onSubmit={this.onSubmit}>
           <div className="frist-group">
             <div className="form-group">
-              <label htmlFor="local">Local: </label>
-              <input
-                id="local"
-                type="text"
-                required
-                value={this.state.local}
-                onChange={this.onChangeLocal}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="sku">Sku: </label>
-              <input
-                id="sku"
-                type="text"
-                required
-                value={this.state.sku}
-                onChange={this.onChangeSku}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="title">Title: </label>
+              <label htmlFor="title">Name: </label>
               <input
                 id="title"
                 type="text"
@@ -229,6 +220,28 @@ export default class AddProduct extends Component {
                 onChange={this.onChangeTitle}
               />
             </div>
+            <div className="form-group">
+              <label htmlFor="local">Local: </label>
+              <input
+                placeholder="Enter Name To Fill"
+                id="local"
+                type="text"
+                required
+                value={this.state.local}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="sku">Sku: </label>
+              <input
+                placeholder="Obtain From Stripe"
+                id="sku"
+                type="text"
+                required
+                value={this.state.sku}
+                onChange={this.onChangeSku}
+              />
+            </div>
+
             <div className="form-group">
               <label htmlFor="brand">Brand: </label>
               <input
@@ -241,13 +254,7 @@ export default class AddProduct extends Component {
             </div>
             <div className="form-group">
               <label htmlFor="size">Size: </label>
-              <input
-                id="size"
-                type="text"
-                required
-                value={this.state.size}
-                onChange={this.onChangeSize}
-              />
+              <input id="size" type="text" required value={this.state.size} />
             </div>
             <div className="form-group">
               <label htmlFor="category">Category: </label>
