@@ -34,6 +34,30 @@ export default class AddProduct extends Component {
       category: ""
     };
   }
+  componentDidMount() {
+    if (!this.props.addProp) {
+      axios
+        .get("http://localhost:5000/products/" + this.props.match.params.id)
+        .then(response => {
+          this.setState({
+            local: response.data.local,
+            sku: response.data.sku,
+            title: response.data.title,
+            brand: response.data.brand,
+            description: response.data.description,
+            ingredients: response.data.ingredients,
+            size: response.data.size,
+            isnew: response.data.isnew,
+            sale: response.data.sale,
+            inventory: response.data.inventory,
+            category: response.data.category
+          });
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    }
+  }
 
   onChangeLocal(e) {
     this.setState({
@@ -119,6 +143,7 @@ export default class AddProduct extends Component {
         if (index + 1 !== this.state.ingredients.length) {
           return item || "";
         }
+        return "";
       })
     });
   }
@@ -140,23 +165,33 @@ export default class AddProduct extends Component {
       category: this.state.category
     };
 
-    axios
-      .post("http://localhost:5000/products/add", product)
-      .then(res => console.log(res.data));
+    if (this.props.addProp) {
+      axios
+        .post("http://localhost:5000/products/add", product)
+        .then(res => console.log(res.data));
+      this.setState({
+        local: "",
+        sku: "",
+        title: "",
+        brand: "",
+        description: "",
+        ingredients: [""],
+        size: "",
+        isnew: true,
+        sale: true,
+        inventory: 1,
+        category: ""
+      });
+    } else {
+      axios
+        .post(
+          "http://localhost:5000/products/update/" + this.props.match.params.id,
+          product
+        )
+        .then(res => console.log(res.data));
 
-    this.setState({
-      local: "",
-      sku: "",
-      title: "",
-      brand: "",
-      description: "",
-      ingredients: [""],
-      size: "",
-      isnew: true,
-      sale: true,
-      inventory: 1,
-      category: ""
-    });
+      window.location = "/";
+    }
   }
 
   render() {
