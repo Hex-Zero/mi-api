@@ -254,7 +254,13 @@ export default class AddProduct extends Component {
             </div>
             <div className="form-group">
               <label htmlFor="size">Size: </label>
-              <input id="size" type="text" required value={this.state.size} />
+              <input
+                id="size"
+                type="text"
+                required
+                value={this.state.size}
+                onChange={this.onChangeSize}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="category">Category: </label>
