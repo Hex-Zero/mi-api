@@ -10,7 +10,20 @@ const Product = props => (
       <Link className="edit" to={"/edit/" + props.product._id}>
         Edit
       </Link>
-
+      <form>
+        <input type="number" value={props.product.inventory}></input>
+      </form>
+      <button
+        onClick={event => {
+          props.updateProductInventory(event, props.product._id, {
+            ...props.product,
+            inventory: props.product.inventory + 1
+          });
+        }}
+      >
+        +
+      </button>
+      {/* 
       <div
         className="delete"
         onClick={() => {
@@ -18,7 +31,7 @@ const Product = props => (
         }}
       >
         Delete
-      </div>
+      </div> */}
     </td>
   </tr>
 );
@@ -28,6 +41,7 @@ export default class ProductsList extends Component {
     super(props);
 
     this.deleteProduct = this.deleteProduct.bind(this);
+    this.updateProductInventory = this.updateProductInventory.bind(this);
 
     this.state = { products: [] };
   }
@@ -45,14 +59,22 @@ export default class ProductsList extends Component {
 
   deleteProduct(id) {
     axios.delete("http://localhost:5000/products/" + id).then(response => {
-      console.log(response.data);
+      // console.log(response.data);
     });
 
     this.setState({
       products: this.state.products.filter(el => el._id !== id)
     });
   }
-
+  updateProductInventory(e, id, productInfo) {
+    axios
+      .post("http://localhost:5000/products/update/" + id, productInfo)
+      .then(r => console.log(r))
+      .catch(error => {
+        console.log(error);
+      });
+    window.location = "/";
+  }
   productList() {
     return this.state.products.map(currentproduct => {
       return (
@@ -60,6 +82,7 @@ export default class ProductsList extends Component {
           product={currentproduct}
           deleteProduct={this.deleteProduct}
           key={currentproduct._id}
+          updateProductInventory={this.updateProductInventory}
         />
       );
     });

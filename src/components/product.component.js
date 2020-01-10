@@ -298,7 +298,6 @@ export default class AddProduct extends Component {
               </div>
             </div>
             {this.state.ingredients.map((item, index) => {
-              console.log(item);
               return (
                 <div className="form-group" key={uuidv1()}>
                   <textarea
