@@ -30,16 +30,6 @@ const Product = props => {
             <FaCheckSquare className="setInventoryCheckBox" />
           </button>
         </form>
-
-        {/* 
-      <div
-        className="delete"
-        onClick={() => {
-          props.deleteProduct(props.product._id);
-        }}
-      >
-        Delete
-      </div> */}
       </td>
     </tr>
   );
@@ -49,7 +39,6 @@ export default class ProductsList extends Component {
   constructor(props) {
     super(props);
 
-    this.deleteProduct = this.deleteProduct.bind(this);
     this.updateProductInventory = this.updateProductInventory.bind(this);
 
     this.state = { products: [] };
@@ -66,13 +55,6 @@ export default class ProductsList extends Component {
       });
   }
 
-  deleteProduct(id) {
-    axios.delete("http://localhost:5000/products/" + id).then(response => {});
-
-    this.setState({
-      products: this.state.products.filter(el => el._id !== id)
-    });
-  }
   updateProductInventory(e, id, productInfo) {
     e.preventDefault();
     axios

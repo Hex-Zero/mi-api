@@ -222,4 +222,18 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   opacity: 1;
 }
+
+.delete {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 0.4vw 1vw;
+  background: rgba(255, 0, 0, 0.651);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete:hover {
+  background: red;
+}
 /*# sourceMappingURL=index.css.map */

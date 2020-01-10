@@ -19,6 +19,7 @@ export default class AddProduct extends Component {
     this.handleAddIngredients = this.handleAddIngredients.bind(this);
     this.handleRemoveIngredients = this.handleRemoveIngredients.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.deleteProduct = this.deleteProduct.bind(this);
 
     this.state = {
       local: "",
@@ -159,6 +160,14 @@ export default class AddProduct extends Component {
     });
   }
 
+  deleteProduct(id) {
+    axios.delete("http://localhost:5000/products/" + id).then(response => {});
+
+    // this.setState({
+    //   products: this.state.products.filter(el => el._id !== id)
+    // });
+    window.location = "/";
+  }
   onSubmit(e) {
     e.preventDefault();
 
@@ -351,6 +360,12 @@ export default class AddProduct extends Component {
             <input type="submit" value="DONE" className="btn btn-primary" />
           </div>
         </form>
+        <button
+          className="delete"
+          onClick={() => this.deleteProduct(this.props.match.params.id)}
+        >
+          Delete
+        </button>
       </div>
     );
   }
