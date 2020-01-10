@@ -1,29 +1,37 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { FaCheckSquare } from "react-icons/fa";
 
-const Product = props => (
-  <tr>
-    <td>{props.product.title}</td>
-    <td>{props.product.sku}</td>
-    <td className="action">
-      <Link className="edit" to={"/edit/" + props.product._id}>
-        Edit
-      </Link>
-      <form>
-        <input type="number" value={props.product.inventory}></input>
-      </form>
-      <button
-        onClick={event => {
-          props.updateProductInventory(event, props.product._id, {
-            ...props.product,
-            inventory: props.product.inventory + 1
-          });
-        }}
-      >
-        +
-      </button>
-      {/* 
+const Product = props => {
+  const [inventory, setInventory] = React.useState(props.product.inventory);
+  return (
+    <tr>
+      <td>{props.product.title}</td>
+      <td>{props.product.sku}</td>
+      <td className="action">
+        <Link className="edit" to={"/edit/" + props.product._id}>
+          Edit
+        </Link>
+        <form
+          onSubmit={e =>
+            props.updateProductInventory(e, props.product._id, {
+              ...props.product,
+              inventory: inventory
+            })
+          }
+        >
+          <input
+            type="number"
+            value={inventory}
+            onChange={e => setInventory(e.target.value)}
+          ></input>
+          <button>
+            <FaCheckSquare className="setInventoryCheckBox" />
+          </button>
+        </form>
+
+        {/* 
       <div
         className="delete"
         onClick={() => {
@@ -32,9 +40,10 @@ const Product = props => (
       >
         Delete
       </div> */}
-    </td>
-  </tr>
-);
+      </td>
+    </tr>
+  );
+};
 
 export default class ProductsList extends Component {
   constructor(props) {
@@ -58,22 +67,20 @@ export default class ProductsList extends Component {
   }
 
   deleteProduct(id) {
-    axios.delete("http://localhost:5000/products/" + id).then(response => {
-      // console.log(response.data);
-    });
+    axios.delete("http://localhost:5000/products/" + id).then(response => {});
 
     this.setState({
       products: this.state.products.filter(el => el._id !== id)
     });
   }
   updateProductInventory(e, id, productInfo) {
+    e.preventDefault();
     axios
       .post("http://localhost:5000/products/update/" + id, productInfo)
       .then(r => console.log(r))
       .catch(error => {
         console.log(error);
       });
-    window.location = "/";
   }
   productList() {
     return this.state.products.map(currentproduct => {

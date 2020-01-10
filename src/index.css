@@ -135,7 +135,7 @@ form .form-group label {
 }
 
 .list-table th {
-  padding: 1vw 6vw;
+  padding: 0.7vw 6vw;
 }
 
 .list-table .action {
@@ -149,7 +149,7 @@ form .form-group label {
 
 .list-table td {
   background: rgba(255, 127, 80, 0.486);
-  padding: 1vw 6vw;
+  padding: 0.6vw 6vw;
 }
 
 .list-table td .edit {
@@ -164,15 +164,38 @@ form .form-group label {
   background: #09f7ff;
 }
 
-.list-table td .delete {
-  padding: 0.4vw 1vw;
-  background: rgba(255, 0, 0, 0.651);
-  border-radius: 5px;
-  cursor: pointer;
+.list-table td input {
+  background: coral;
+  border: none;
+  padding: 0.4vw;
+  font-size: large;
+  font-weight: 900;
+  width: 3vw;
+  text-align: center;
 }
 
-.list-table td .delete:hover {
-  background: red;
+.list-table td input:focus {
+  outline-color: white;
+}
+
+.list-table td button {
+  background: transparent;
+  border: none;
+}
+
+.list-table td button:focus {
+  outline: none;
+}
+
+.list-table td .setInventoryCheckBox {
+  font-size: 1.5vw;
+  color: white;
+}
+
+.list-table td .setInventoryCheckBox:hover {
+  color: #fd5c21;
+  -webkit-box-shadow: 0 0 3px 3px coral;
+          box-shadow: 0 0 3px 3px coral;
 }
 
 .container {
@@ -193,5 +216,10 @@ form .form-group label {
 
 .container #add-button-list:hover {
   background: #09ff46;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
 }
 /*# sourceMappingURL=index.css.map */

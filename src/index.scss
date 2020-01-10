@@ -133,7 +133,7 @@ form {
     background: coral;
   }
   th {
-    padding: 1vw 6vw;
+    padding: 0.7vw 6vw;
   }
   .action {
     display: grid;
@@ -142,7 +142,7 @@ form {
   }
   td {
     background: rgba(255, 127, 80, 0.486);
-    padding: 1vw 6vw;
+    padding: 0.6vw 6vw;
 
     .edit {
       text-decoration: none;
@@ -154,13 +154,41 @@ form {
         background: rgb(9, 247, 255);
       }
     }
-    .delete {
-      padding: 0.4vw 1vw;
-      background: rgba(255, 0, 0, 0.651);
-      border-radius: 5px;
-      cursor: pointer;
+
+    input {
+      background: coral;
+      border: none;
+      padding: 0.4vw;
+      font-size: large;
+      font-weight: 900;
+      width: 3vw;
+      text-align: center;
+      &:focus {
+        outline-color: white;
+      }
+    }
+    // .delete {
+    //   padding: 0.4vw 1vw;
+    //   background: rgba(255, 0, 0, 0.651);
+    //   border-radius: 5px;
+    //   cursor: pointer;
+    //   &:hover {
+    //     background: rgb(255, 0, 0);
+    //   }
+    // }
+    button {
+      background: transparent;
+      border: none;
+      &:focus {
+        outline: none;
+      }
+    }
+    .setInventoryCheckBox {
+      font-size: 1.5vw;
+      color: white;
       &:hover {
-        background: rgb(255, 0, 0);
+        color: rgb(253, 92, 33);
+        box-shadow: 0 0 3px 3px coral;
       }
     }
   }
@@ -180,4 +208,8 @@ form {
       background: rgb(9, 255, 70);
     }
   }
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
 }
